@@ -7,6 +7,7 @@ public class App {
 
 
 		//  int result = binarySearch([124,44,4]);
+		 long result = fibonacci(12);
 			
         System.out.println(result);
     }
