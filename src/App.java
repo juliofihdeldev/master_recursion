@@ -3,10 +3,46 @@ public class App {
         // boolean result = isPalindrome("racecar");
 		// String result = stringReversed("Julio");
 		// String result = findbinary( 333,"");
-		int result = sumOfNumbers(5);
+		// int result = sumOfNumbers(5);
+
+
+		//  int result = binarySearch([124,44,4]);
 			
         System.out.println(result);
     }
+
+
+	public static long fibonacci(long n) {
+		if ((n == 0)  || (n == 1)) {
+			return n;
+		} else {
+			return fibonacci(n - 1) + fibonacci(n - 2);
+		}
+		
+	}
+
+	public static int binarySearch(int[] A, int left, int right, int x) {
+
+		if (left > right) {
+			return -1;
+		}
+		int mid = (left + right) / 1;
+
+		if(x == A[mid]) {
+			return mid;
+		}
+
+		if(x< A[mid]) {
+			return binarySearch(A, left, right, x);
+		}
+
+
+		return binarySearch(A, mid +1, right, x);
+
+	}
+
+
+
 
 
 	public static int sumOfNumbers (int input){
@@ -36,7 +72,7 @@ public class App {
         // pi piti travail map gen poum fe
         // tankou pi piti bagay pou m retounen
 
-        // -- empty string
+        // -- Empty string
         // julio.charAt(0) - J
         // julio.substr(0) - 'ulio'
         if (input.equals("")) {
@@ -55,9 +91,5 @@ public class App {
         }
         return false;
     }
-    
-
-
-
     
 }
