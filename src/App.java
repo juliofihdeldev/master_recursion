@@ -1,3 +1,5 @@
+
+
 public class App {
     public static void main(String[] args) throws Exception {
         // boolean result = isPalindrome("racecar");
@@ -7,10 +9,61 @@ public class App {
 
 
 		//  int result = binarySearch([124,44,4]);
-		 long result = fibonacci(12);
-			
-        System.out.println(result);
+		//  long result = fibonacci(5);
+		// 	System.out.println(result);
+
+		// int[] data = new int[] { -5, 20, 10, 3, 2, 0 };
+		// mergeSort(data, 0, data.length - 1);
+		// System.out.println("Stop");
+
+
+
+	
+
     }
+
+
+	public static void mergeSort(int[] data, int start, int end) {
+
+		if (start < end) {
+			int mid = (start + end) / 2;
+			mergeSort(data, start, mid);
+			mergeSort(data, mid + 1, end);
+			merge(data, start, mid, end);
+		}
+	}
+	
+	public static void merge( int[] data, int start, int mid, int end) {
+		// build  temp array to not modifie original content
+
+		int[] temp = new int[end - start + 1];
+		int i = start, j = mid + 1, k = 0;
+
+		while (i <= mid && j <= end) {
+			if (data[i] <= data[j]) {
+				temp[k++] = data[i++];
+			} else {
+				temp[k++] = data[j++];
+			}
+		}
+
+		// Add res value  left
+		while (i <= mid) {
+			temp[k] = data[i];
+			k++; i++;
+		}
+
+		// Add res value  rigth
+		while (j <= end) {
+			temp[k] = data[j];
+			k++; j++;
+		}
+
+		for (i = start; i <= end; i++) {
+			data[i] = temp[i - start];
+		}
+
+	}
 
 
 	public static long fibonacci(long n) {
@@ -37,14 +90,9 @@ public class App {
 			return binarySearch(A, left, right, x);
 		}
 
-
 		return binarySearch(A, mid +1, right, x);
 
 	}
-
-
-
-
 
 	public static int sumOfNumbers (int input){
 		if (input <= 1) {
@@ -94,3 +142,5 @@ public class App {
     }
     
 }
+
+
